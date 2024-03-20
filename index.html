@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mesas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&displayfamily=Amatic+SC:wght@700&family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Lobster&family=Metal+Mania&family=Yellowtail& family=Permanent+Marker&family=Piedra&family=Sriracha&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  
+    <header>
+<button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+<h1><u><q>Lista de Mesas</q></u> <span id="mesa-titulo"></span></h1>
+    </header>
+    
+
+<ul id="bebidas-lista">
+    <!-- Aquí se agregan dinámicamente las bebidas -->
+</ul>
+
+<div class="footer">
+    <button id="resetear-btn" class="btn-lg">Reset</button>
+    <input type="text" id="bebida-input" placeholder="Ingresar Modelo">
+    <button id="confirmar-btn"><i>Confirmar</i></button>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="text" id="bebida-input" placeholder="Ingresa el tipo de bebida">
+        <button id="confirmar-btn">Confirmar</button>
+    </div>
+</div>
+ 
+   <div id="menu" class="menu">
+     
+<u><a href="#">Mesa 1 (Paqui)</a></u>
+<u><a href="#">Mesa 2 (Isi)</a></u>
+<u><a href="#">Mesa 3 (Alicia)</a></u>
+<u><a href="#">Mesa 4</a></u>
+<u><a href="#">Mesa 5</a></u>
+<u><a href="#">Mesa 6 (Loli)</a></u>
+<u><a href="#">Mesa 7 (Encarni)</a></u>
+<u><a href="#">Mesa 8</a></u>
+<u><a href="#">Mesa 9 (Sofia)</a></u>
+<u><a href="#">Mesa 10 (Susana)</a></u>
+
+
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
