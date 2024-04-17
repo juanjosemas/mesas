@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const bebidasPorMesa = {}; // Objeto para almacenar las bebidas de cada mesa
+    // Restaurar datos del localStorage si existen, o inicializar un objeto vacío
+    const bebidasPorMesa = JSON.parse(localStorage.getItem('bebidasPorMesa')) || {};
     const bebidasLista = document.getElementById("bebidas-lista");
     const resetearBtn = document.getElementById("resetear-btn");
     const modal = document.getElementById("modal");
@@ -14,45 +15,43 @@ document.addEventListener("DOMContentLoaded", function() {
         menu.classList.toggle("show-menu");
     }
 
-    // Agregamos el evento de clic al botón "Reset"
     resetearBtn.addEventListener("click", function() {
-        bebidasLista.innerHTML = ""; // Elimina todos los elementos de la lista de bebidas
-        bebidasPorMesa[currentTable] = []; // Borra las bebidas de la mesa actual
+        bebidasLista.innerHTML = "";
+        bebidasPorMesa[currentTable] = [];
+        guardarDatosLocalStorage(); // Guardar datos en el localStorage
     });
 
     confirmarBtn.addEventListener("click", function() {
         const bebidaNombre = bebidaInput.value.trim();
         if (bebidaNombre) {
-            // Verificar si existe la mesa en bebidasPorMesa, si no existe, crearla
             if (!bebidasPorMesa[currentTable]) {
                 bebidasPorMesa[currentTable] = [];
             }
             let bebida = bebidasPorMesa[currentTable].find(bebida => bebida.nombre === bebidaNombre);
             if (!bebida) {
-                bebida = { nombre: bebidaNombre, cantidad: 0 }; // Establecer la cantidad inicial en 0
+                bebida = { nombre: bebidaNombre }; // No se establece cantidad inicial
                 bebidasPorMesa[currentTable].push(bebida);
             }
             actualizarListaBebidas();
-            bebidaInput.value = ""; // Borrar el contenido del input después de confirmar la bebida
+            bebidaInput.value = "";
+            guardarDatosLocalStorage(); // Guardar datos en el localStorage
         }
     });
 
-    // Manejar el cambio de mesa
     document.querySelectorAll(".menu a").forEach(function(link) {
         link.addEventListener("click", function(event) {
             event.preventDefault();
             const mesa = event.target.textContent;
             currentTable = mesa;
             actualizarListaBebidas();
-            mesaTitulo.textContent = mesa; // Mostrar el nombre de la mesa debajo del título
-            toggleMenu(); // Ocultar el menú emergente al seleccionar una mesa
+            mesaTitulo.textContent = mesa;
+            toggleMenu();
         });
     });
 
-    // Función para actualizar la lista de bebidas según la mesa actual
     function actualizarListaBebidas() {
-        bebidasLista.innerHTML = ""; // Limpiar la lista de bebidas
-        const bebidas = bebidasPorMesa[currentTable] || []; // Obtener las bebidas de la mesa actual
+        bebidasLista.innerHTML = "";
+        const bebidas = bebidasPorMesa[currentTable] || [];
         bebidas.forEach(function(bebida) {
             const li = document.createElement("li");
             const bebidaSpan = document.createElement("span");
@@ -64,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function() {
             btnDelete.classList.add("btn-delete");
 
             btnDelete.addEventListener("click", function() {
-                bebida.cantidad = 0; // Restablecer la cantidad a 0
                 const index = bebidasPorMesa[currentTable].indexOf(bebida);
                 if (index !== -1) {
                     bebidasPorMesa[currentTable].splice(index, 1);
+                    actualizarListaBebidas();
+                    guardarDatosLocalStorage(); // Guardar datos en el localStorage
                 }
-                actualizarListaBebidas();
             });
 
             li.appendChild(btnDelete);
@@ -78,11 +77,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             bebidasLista.appendChild(li);
         });
+
+        guardarDatosLocalStorage(); // Guardar datos en el localStorage
     }
 
-    let currentTable = "Taula 1"; // Inicializar la mesa actual
+    let currentTable = "Taula 1";
 
-    // Evento de clic para mostrar/ocultar el menú
     menuBtn.addEventListener("click", toggleMenu);
 
     document.addEventListener("click", function(event) {
@@ -90,6 +90,11 @@ document.addEventListener("DOMContentLoaded", function() {
             menu.classList.remove("show-menu");
         }
     });
+
+    // Función para guardar los datos en el localStorage
+    function guardarDatosLocalStorage() {
+        localStorage.setItem('bebidasPorMesa', JSON.stringify(bebidasPorMesa));
+    }
 
     // Actualizar lista de bebidas al cargar la página
     actualizarListaBebidas();
