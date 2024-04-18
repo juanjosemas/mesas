@@ -12,6 +12,7 @@ body {
 }
 
 header {
+        margin-left: 50px;
         display: flex;
         align-items: center; /* Centra verticalmente los elementos dentro del header */     
 }
@@ -79,17 +80,6 @@ h1 {
     margin-right: 10px; /* Separación entre el botón X y la bebida */
     font-weight: bold; /* Pone en negrita el botón X */
     font-size: 1em; /* Ajusta el tamaño del boton */
-}
-
-.btn-sumar {
-  margin-left: 20px; /* Separación entre los botones + y - */
-    font-weight: bold; /* Pone en negrita los botones + y - */
-    font-size: 1.5em; /* Ajusta el tamaño de los botones */
-}
-.btn-restar {
-    margin-left: 20px; /* Separación entre los botones + y - */
-    font-weight: bold; /* Pone en negrita los botones + y - */
-    font-size: 1.2em; /* Ajusta el tamaño de los botones */
 }
 
 
@@ -173,7 +163,15 @@ h1 {
 .menu-btn {
     font-size: 25px;
     opacity: 0.8;
+    border-radius: 25%;
+    display: flex;
+    margin: 0 0 0 -20px;
 }
+
+.fa-check-circle{
+    font-size: 30px;
+}
+
 
 
 
