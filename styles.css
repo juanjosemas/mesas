@@ -161,11 +161,11 @@ h1 {
 }
 
 .menu-btn {
-    font-size: 25px;
+    font-size: 30px;
     opacity: 0.8;
     border-radius: 25%;
     display: flex;
-    margin: 0 0 0 -20px;
+    margin: 0 0 0 -50px;
 }
 
 .fa-check-circle{
