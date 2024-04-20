@@ -68,12 +68,14 @@ h1 {
     flex-shrink: 0; /* Evita que el botón se estire */
     font-size: 1.0em;
     font-weight: bold;
+    border-radius: 25%;
 }
 
 
 .btn-lg {
     font-size: 1.2em;
     font-weight: bold;
+    border-radius: 15%;
 }
 
 .btn-delete {
