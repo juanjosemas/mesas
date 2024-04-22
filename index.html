@@ -13,13 +13,21 @@
 
   
     <header>
-      
-<button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+ <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
 <h1><u><q>Lista de Mesas</q></u> <span id="mesa-titulo"></span></h1>
     </header>
     
     
-
+<!-- Mensaje de resetear todos los modelos de una mesa -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <p id="confirmText">¿Quieres borrar los modelos de esta mesa?</p>
+    <button id="confirmYes">Sí</button>
+    <button id="confirmNo">No</button>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - -->    
+   
 <ul id="bebidas-lista">
     <!-- Aquí se agregan dinámicamente las bebidas -->
 </ul>
@@ -30,12 +38,7 @@
     <button id="confirmar-btn"><i class="fas fa-check-circle"></i></button>
 </div>
 
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-       
-    </div>
-</div>
+
  
    <div id="menu" class="menu">
      
@@ -50,9 +53,7 @@
 <u><a href="#">Mesa 9 (Sofia)</a></u>
 <u><a href="#">Mesa 10 (Susana)</a></u>
 
-
-
-</div>
+   </div>
 
 <script src="script.js"></script>
 </body>
