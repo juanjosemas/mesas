@@ -16,9 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     resetearBtn.addEventListener("click", function() {
+    
+    const confirmacion = confirm("¿Quieres borrar todos los modelos de esta mesa?");
+    if (confirmacion) {
         bebidasLista.innerHTML = "";
         bebidasPorMesa[currentTable] = [];
         guardarDatosLocalStorage(); // Guardar datos en el localStorage
+        }
     });
 
     confirmarBtn.addEventListener("click", function() {
