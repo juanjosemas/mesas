@@ -3,10 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const bebidasPorMesa = JSON.parse(localStorage.getItem('bebidasPorMesa')) || {};
     const bebidasLista = document.getElementById("bebidas-lista");
     const resetearBtn = document.getElementById("resetear-btn");
-    const modal = document.getElementById("modal");
     const bebidaInput = document.getElementById("bebida-input");
     const confirmarBtn = document.getElementById("confirmar-btn");
-    const closeBtn = document.getElementsByClassName("close")[0];
     const menuBtn = document.querySelector(".menu-btn");
     const menu = document.getElementById("menu");
     const mesaTitulo = document.getElementById("mesa-titulo");
@@ -16,13 +14,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     resetearBtn.addEventListener("click", function() {
-    
-    const confirmacion = confirm("¿Quieres borrar todos los modelos de esta mesa?");
-    if (confirmacion) {
-        bebidasLista.innerHTML = "";
-        bebidasPorMesa[currentTable] = [];
-        guardarDatosLocalStorage(); // Guardar datos en el localStorage
-        }
+        const confirmModal = document.getElementById("confirmModal");
+        const confirmYes = document.getElementById("confirmYes");
+        const confirmNo = document.getElementById("confirmNo");
+
+        confirmModal.style.display = "block";
+
+        confirmYes.onclick = function() {
+            bebidasLista.innerHTML = "";
+            bebidasPorMesa[currentTable] = [];
+            actualizarListaBebidas();
+            confirmModal.style.display = "none";
+            guardarDatosLocalStorage(); // Guardar datos en el localStorage
+        };
+
+        confirmNo.onclick = function() {
+            confirmModal.style.display = "none";
+        };
     });
 
     confirmarBtn.addEventListener("click", function() {
