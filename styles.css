@@ -8,7 +8,7 @@ body {
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('analco.jpg');
         background-size: cover;
         background-position: center;
-        background-attachment: fixed
+        background-attachment: fixed;
 }
 
 header {
@@ -19,20 +19,20 @@ header {
 
 h1 {
     text-align: center;
-    text-decoration: underline; 
+    text-decoration: underline;
     font-family: Caveat;
     margin-left: 20px; /* Ajusta el espacio entre el botón de menú y el título */
 }
 
-#bebidas-lista {
+#modelos-lista {
     margin-top: 5px; /* Ajusta el margen superior para acercar la lista al titulo */
     list-style-type: none;
     padding: 0;
     font-family: Piedra;
 }
 
-#bebidas-lista li {
-    margin-bottom: 6px; /* Agrega más espacio entre las bebidas */
+#modelos-lista li {
+    margin-bottom: 6px; /* Agrega más espacio entre los modelos */
 }
 
 
@@ -80,7 +80,7 @@ h1 {
 }
 
 .btn-delete {
-    margin-right: 10px; /* Separación entre el botón X y la bebida */
+    margin-right: 10px; /* Separación entre el botón X y el modelo */
     font-weight: bold; /* Pone en negrita el botón X */
     font-size: 1em; /* Ajusta el tamaño del boton */
 }
@@ -102,14 +102,15 @@ h1 {
     cursor: pointer;
 }
 
-#bebida-input {
-    font-size: 1em; /* Ajusta el tamaño del campo de ingreso de bebida */
+#modelo-input {
+    font-size: 1em; /* Ajusta el tamaño del campo de ingreso de modelo */
 }
 
 /* Resto de estilos... */
 
 /* Estilo para el menú lateral */
 .menu {
+    text-decoration: underline;
     height: 100%;
     width: 0;
     position: fixed;
@@ -157,7 +158,7 @@ h1 {
     font-size: 30px;
 }
 
-/* Estilos para el modal */
+/* Estilos para el modal, (mensaje dw borrar o no) */
 .modal {
   display: none;
   position: fixed;
