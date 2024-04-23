@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Restaurar datos del localStorage si existen, o inicializar un objeto vacío
-    const bebidasPorMesa = JSON.parse(localStorage.getItem('bebidasPorMesa')) || {};
-    const bebidasLista = document.getElementById("bebidas-lista");
+    const modelosPorMesa = JSON.parse(localStorage.getItem('modelosPorMesa')) || {};
+    const modelosLista = document.getElementById("modelos-lista");
     const resetearBtn = document.getElementById("resetear-btn");
-    const bebidaInput = document.getElementById("bebida-input");
+    const modeloInput = document.getElementById("modelo-input");
     const confirmarBtn = document.getElementById("confirmar-btn");
     const menuBtn = document.querySelector(".menu-btn");
     const menu = document.getElementById("menu");
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
         confirmModal.style.display = "block";
 
         confirmYes.onclick = function() {
-            bebidasLista.innerHTML = "";
-            bebidasPorMesa[currentTable] = [];
-            actualizarListaBebidas();
+            modelosLista.innerHTML = "";
+            modelosPorMesa[currentTable] = [];
+            actualizarListaModelos();
             confirmModal.style.display = "none";
             guardarDatosLocalStorage(); // Guardar datos en el localStorage
         };
@@ -34,18 +34,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     confirmarBtn.addEventListener("click", function() {
-        const bebidaNombre = bebidaInput.value.trim();
-        if (bebidaNombre) {
-            if (!bebidasPorMesa[currentTable]) {
-                bebidasPorMesa[currentTable] = [];
+        const modeloNombre = modeloInput.value.trim();
+        if (modeloNombre) {
+            if (!modelosPorMesa[currentTable]) {
+                modelosPorMesa[currentTable] = [];
             }
-            let bebida = bebidasPorMesa[currentTable].find(bebida => bebida.nombre === bebidaNombre);
-            if (!bebida) {
-                bebida = { nombre: bebidaNombre }; // No se establece cantidad inicial
-                bebidasPorMesa[currentTable].push(bebida);
+            let modelo = modelosPorMesa[currentTable].find(bebida => modelo.nombre === modeloNombre);
+            if (!modelo) {
+                modelo = { nombre: modeloNombre }; // No se establece cantidad inicial
+                modelosPorMesa[currentTable].push(modelo);
             }
-            actualizarListaBebidas();
-            bebidaInput.value = "";
+            actualizarListaModelos();
+            modeloInput.value = "";
             guardarDatosLocalStorage(); // Guardar datos en el localStorage
         }
     });
@@ -55,39 +55,39 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const mesa = event.target.textContent;
             currentTable = mesa;
-            actualizarListaBebidas();
+            actualizarListaModelos();
             mesaTitulo.textContent = mesa;
             toggleMenu();
         });
     });
 
-    function actualizarListaBebidas() {
-        bebidasLista.innerHTML = "";
-        const bebidas = bebidasPorMesa[currentTable] || [];
-        bebidas.forEach(function(bebida) {
+    function actualizarListaModelos() {
+        modelosLista.innerHTML = "";
+        const modelos = modelosPorMesa[currentTable] || [];
+        modelos.forEach(function(modelo) {
             const li = document.createElement("li");
-            const bebidaSpan = document.createElement("span");
+            const modeloSpan = document.createElement("span");
             const btnDelete = document.createElement("button");
 
-            bebidaSpan.textContent = bebida.nombre;
+            modeloSpan.textContent = modelo.nombre;
 
             btnDelete.textContent = "X";
             btnDelete.classList.add("btn-delete");
 
             btnDelete.addEventListener("click", function() {
-                const index = bebidasPorMesa[currentTable].indexOf(bebida);
+                const index = modelosPorMesa[currentTable].indexOf(modelo);
                 if (index !== -1) {
-                    bebidasPorMesa[currentTable].splice(index, 1);
-                    actualizarListaBebidas();
+                    modelosPorMesa[currentTable].splice(index, 1);
+                    actualizarListaModelos();
                     guardarDatosLocalStorage(); // Guardar datos en el localStorage
                 }
             });
 
             li.appendChild(btnDelete);
-            li.appendChild(bebidaSpan);
-            li.classList.add("bebida-container");
+            li.appendChild(modeloSpan);
+            li.classList.add("modelo-container");
 
-            bebidasLista.appendChild(li);
+            modelosLista.appendChild(li);
         });
 
         guardarDatosLocalStorage(); // Guardar datos en el localStorage
@@ -105,9 +105,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para guardar los datos en el localStorage
     function guardarDatosLocalStorage() {
-        localStorage.setItem('bebidasPorMesa', JSON.stringify(bebidasPorMesa));
+        localStorage.setItem('modelosPorMesa', JSON.stringify(modelosPorMesa));
     }
 
     // Actualizar lista de bebidas al cargar la página
-    actualizarListaBebidas();
+    actualizarListaModelos();
 });
