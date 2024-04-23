@@ -9,16 +9,17 @@
     
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
-<body>
 
-  
+<body>
+   
     <header>
+<!-- Boton menu y titulo -->  
 <button class="menu-btn"><i class="fa fa-bars"></i></button>
-<h1><u><q>Lista de Mesas</q></u> <span id="mesa-titulo"></span></h1>
+<h1><q>Lista de Mesas</q> <span id="mesa-titulo"></span></h1>
     </header>
     
     
-<!-- Mensaje de resetear todos los modelos de una mesa -->
+<!-- Mensaje para resetear todos los modelos de una mesa -->
 <div id="confirmModal" class="modal">
   <div class="modal-content">
     <p id="confirmText">¿Quieres borrar los modelos de esta mesa?</p>
@@ -26,34 +27,39 @@
     <button id="confirmNo">No</button>
   </div>
 </div>
+
 <!-- - - - - - - - - - - - - - - - - -->    
    
-<ul id="bebidas-lista">
+<ul id="modelos-lista">
     <!-- Aquí se agregan dinámicamente las bebidas -->
 </ul>
 
+<!-- - - - - - - - - - - - - - - - - -->
+
+   <div id="menu" class="menu">
+         
+<a href="#">Mesa 1 (Paqui)</a>
+<a href="#">Mesa 2 (Isi)</a>
+<a href="#">Mesa 3 (Alicia)</a>
+<a href="#">Mesa 4</a>
+<a href="#">Mesa 5</a>
+<a href="#">Mesa 6 (Loli)</a>
+<a href="#">Mesa 7 (Encarni)</a>
+<a href="#">Mesa 8</a>
+<a href="#">Mesa 9 (Sofia)</a>
+<a href="#">Mesa 10 (Susana)</a>
+
+    </div>
+
+<!-- - - - - - - - - - - - - - - - - -->
+
+<!-- Pie de pagina, botones reset y confirmar e ingresar modelos --> 
 <div class="footer">
     <button id="resetear-btn" class="btn-lg">Reset</button>
-    <input type="text" id="bebida-input" placeholder="Ingresar Modelo">
+    <input type="text" id="modelo-input" placeholder="Ingresar Modelo">
     <button id="confirmar-btn"><i class="fas fa-check-circle"></i></button>
 </div>
 
-
- 
-   <div id="menu" class="menu">
-         
-<u><a href="#">Mesa 1 (Paqui)</a></u>
-<u><a href="#">Mesa 2 (Isi)</a></u>
-<u><a href="#">Mesa 3 (Alicia)</a></u>
-<u><a href="#">Mesa 4</a></u>
-<u><a href="#">Mesa 5</a></u>
-<u><a href="#">Mesa 6 (Loli)</a></u>
-<u><a href="#">Mesa 7 (Encarni)</a></u>
-<u><a href="#">Mesa 8</a></u>
-<u><a href="#">Mesa 9 (Sofia)</a></u>
-<u><a href="#">Mesa 10 (Susana)</a></u>
-
-   </div>
 
 <script src="script.js"></script>
 </body>
