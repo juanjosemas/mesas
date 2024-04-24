@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Mesas</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&displayfamily=Amatic+SC:wght@700&family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Lobster&family=Metal+Mania&family=Yellowtail& family=Permanent+Marker&family=Piedra&family=Sriracha&display=swap" rel="stylesheet">
-    
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Amatic+SC:wght@700&family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Lobster&family=Metal+Mania&family=Yellowtail&family=Permanent+Marker&family=Piedra&family=Sriracha&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
 <body>
@@ -26,6 +28,10 @@
     <button id="confirmYes">Sí</button>
     <button id="confirmNo">No</button>
   </div>
+</div>
+
+<div id="mensaje-container" class="mensaje-container">
+    <p id="mensaje-resultado"></p>
 </div>
 
 <!-- - - - - - - - - - - - - - - - - -->    
@@ -53,12 +59,23 @@
 
 <!-- - - - - - - - - - - - - - - - - -->
 
+
 <!-- Pie de pagina, botones reset y confirmar e ingresar modelos --> 
 <div class="footer">
     <button id="resetear-btn" class="btn-lg">Reset</button>
     <input type="text" id="modelo-input" placeholder="Ingresar Modelo">
     <button id="confirmar-btn"><i class="fas fa-check-circle"></i></button>
+  <!-- Lista de modelos... --> 
+    <div class="search-modelo">
+    <input type="text" id="buscar-modelo-input" placeholder="Buscar Modelo">
+    <button id="buscar-modelo-btn">Buscar</button>
+</div>   
+    
+    
 </div>
+
+
+
 
 
 <script src="script.js"></script>
