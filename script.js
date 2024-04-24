@@ -8,9 +8,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuBtn = document.querySelector(".menu-btn");
     const menu = document.getElementById("menu");
     const mesaTitulo = document.getElementById("mesa-titulo");
+    const buscarModeloBtn = document.getElementById("buscar-modelo-btn");
+    const buscarModeloInput = document.getElementById("buscar-modelo-input");
+    const mensajeResultado = document.getElementById("mensaje-resultado");
+    const mensajeContainer = document.getElementById("mensaje-container");
 
     function toggleMenu() {
         menu.classList.toggle("show-menu");
+    }
+
+    function toggleMensaje(show) {
+        if (show) {
+            mensajeContainer.classList.add("show");
+        } else {
+            mensajeContainer.classList.remove("show");
+        }
     }
 
     resetearBtn.addEventListener("click", function() {
@@ -39,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!modelosPorMesa[currentTable]) {
                 modelosPorMesa[currentTable] = [];
             }
-            let modelo = modelosPorMesa[currentTable].find(bebida => modelo.nombre === modeloNombre);
+            let modelo = modelosPorMesa[currentTable].find(bebida => bebida.nombre === modeloNombre);
             if (!modelo) {
                 modelo = { nombre: modeloNombre }; // No se establece cantidad inicial
                 modelosPorMesa[currentTable].push(modelo);
@@ -61,8 +73,58 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    buscarModeloBtn.addEventListener("click", function() {
+        const modeloBuscado = buscarModeloInput.value.trim().toLowerCase();
+
+        if (modeloBuscado) {
+            const mesaEncontrada = buscarMesaPorModelo(modeloBuscado);
+            if (mesaEncontrada) {
+                mensajeResultado.textContent = `El modelo '${modeloBuscado}' se encuentra en ${mesaEncontrada}`;
+            } else {
+                mensajeResultado.textContent = `El modelo '${modeloBuscado}' no se encuentra en ninguna mesa.`;
+            }
+            toggleMensaje(true);
+        } else {
+            mensajeResultado.textContent = "Por favor, ingresa un modelo para buscar.";
+            toggleMensaje(true);
+        }
+        
+        // Limpiar el mensaje después de buscar
+        setTimeout(function() {
+            toggleMensaje(false);
+            buscarModeloInput.value = ""; // Vaciar el input de búsqueda
+        }, 3000); // Limpiar el mensaje después de 3 segundos
+    });
+
+    // Función para buscar el modelo en las mesas
+    function buscarMesaPorModelo(modelo) {
+        for (const mesa in modelosPorMesa) {
+            const modelos = modelosPorMesa[mesa];
+            if (modelos.some(modeloItem => modeloItem.nombre === modelo)) {
+                return mesa;
+            }
+        }
+        return null;
+    }
+
+    let currentTable = ""; // Inicializamos como cadena vacía para no mostrar modelos al inicio
+
+    menuBtn.addEventListener("click", toggleMenu);
+
+    document.addEventListener("click", function(event) {
+        if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+            menu.classList.remove("show-menu");
+        }
+    });
+
+    // Función para guardar los datos en el localStorage
+    function guardarDatosLocalStorage() {
+        localStorage.setItem('modelosPorMesa', JSON.stringify(modelosPorMesa));
+    }
+
+    // Función para actualizar la lista de modelos
     function actualizarListaModelos() {
-        modelosLista.innerHTML = "";
+        modelosLista.innerHTML = ""; // Limpiamos la lista de modelos al inicio
         const modelos = modelosPorMesa[currentTable] || [];
         modelos.forEach(function(modelo) {
             const li = document.createElement("li");
@@ -93,21 +155,6 @@ document.addEventListener("DOMContentLoaded", function() {
         guardarDatosLocalStorage(); // Guardar datos en el localStorage
     }
 
-    let currentTable = "Taula 1";
-
-    menuBtn.addEventListener("click", toggleMenu);
-
-    document.addEventListener("click", function(event) {
-        if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
-            menu.classList.remove("show-menu");
-        }
-    });
-
-    // Función para guardar los datos en el localStorage
-    function guardarDatosLocalStorage() {
-        localStorage.setItem('modelosPorMesa', JSON.stringify(modelosPorMesa));
-    }
-
-    // Actualizar lista de bebidas al cargar la página
+    // Actualizar lista de modelos al cargar la página
     actualizarListaModelos();
 });
