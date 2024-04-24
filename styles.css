@@ -23,14 +23,14 @@ h1 {
 }
 
 .menu-btn {
-    font-size: 30px;
+    font-size: 25px;
     opacity: 0.8;
-    border-radius: 25%;
+    border-radius: 15px;
     display: flex;
     margin: 0 0 0 -50px;
     background-color: #00b7ff;
     color: white;
-    padding: 5px 10px;
+    padding: 5px 8px;
 }
 
 .footer {
@@ -90,7 +90,8 @@ h1 {
 }
 
 #modelos-lista li {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
 .close {
@@ -138,10 +139,6 @@ h1 {
     color: #333;
     display: block;
     transition: 0.3s;
-}
-
-.menu a:hover {
-    background-color: #ddd;
 }
 
 /* Boton de confirmar del footer */
