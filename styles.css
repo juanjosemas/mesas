@@ -15,6 +15,7 @@ header {
     align-items: center; 
 }
 
+/* Titulo de la pagina */
 h1 {
     text-align: center;
     text-decoration: underline;
@@ -22,6 +23,7 @@ h1 {
     margin-left: 20px;
 }
 
+/* Boton del menu lateral */
 .menu-btn {
     font-size: 25px;
     opacity: 0.8;
@@ -33,14 +35,15 @@ h1 {
     padding: 5px 8px;
 }
 
+/* Formato pie de pagina */
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: transparent;/*#f1f1f1;*/
     text-align: center;
-    padding: 5px 0; 
+    padding: 0; 
 }
 
 /* Botones input, lo que esta escrito dentro */
@@ -49,7 +52,7 @@ h1 {
     margin: 4px;
     font-family: Piedra;
 }
-
+/* Input buscar modelo y boton buscar*/
 .footer input#buscar-modelo-input,
 .footer button#buscar-modelo-btn {
     margin-bottom: 10px;
