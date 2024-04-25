@@ -62,6 +62,7 @@ h1 {
     font-size: 1em;
     padding: 10px 12px;
     border-radius: 10px;
+    font-style: italic;
 }
 
 /* Input de buscar modelo, solo la parte de fuera */
@@ -69,6 +70,7 @@ h1 {
     width: 180px;
     font-size: 17px;
     border-radius: 10px;
+    font-style: italic;
 }
 /*Formato del input del boton buscar*/
 .footer button#buscar-modelo-btn {
