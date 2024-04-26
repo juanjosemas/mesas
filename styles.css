@@ -19,7 +19,7 @@ header {
 h1 {
     text-align: center;
     text-decoration: underline;
-    font-family: Caveat;
+    font-family: Yellowtail;
     margin-left: 20px;
 }
 
@@ -41,7 +41,7 @@ h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: transparent;/*#f1f1f1;*/
+    background-color: transparent;
     text-align: center;
     padding: 0; 
 }
@@ -206,6 +206,8 @@ h1 {
     font-weight: bold;
     font-family: Piedra;
     border-radius: 5px;
+    background: white;
+    color: black;
 }
 
 /* Mensaje de busqueda de modelo */
