@@ -189,6 +189,7 @@ h1 {
     font-family: Lobster;
     border-radius: 20%;
     font-size: 20px;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
 
 /*-----------------------------------*/
