@@ -1,0 +1,239 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('luna.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+header {
+    margin-left: 50px;
+    display: flex;
+    align-items: center; 
+}
+
+/* Titulo de la pagina */
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    font-family: Yellowtail;
+    margin-left: 20px;
+}
+
+/* Boton del menu lateral */
+.menu-btn {
+    font-size: 25px;
+    opacity: 0.8;
+    border-radius: 15px;
+    display: flex;
+    margin: 0 0 0 -50px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 8px;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/* Formato pie de pagina */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    padding: 0; 
+}
+
+/* Botones input, lo que esta escrito dentro */
+.footer input[type="text"],
+.footer button {
+    margin: 4px;
+    font-family: Piedra;
+}
+/* Input buscar modelo y boton buscar*/
+.footer input#buscar-modelo-input,
+.footer button#buscar-modelo-btn {
+    margin-bottom: 10px;
+}
+
+/* Botones del footer reset, ingresar modelo y confirmar */
+.footer button#resetear-btn,
+.footer input#modelo-input,
+.footer button#confirmar-btn {
+    font-size: 1em;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-style: italic;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/* Input de buscar modelo, solo la parte de fuera */
+.footer input#buscar-modelo-input {
+    width: 180px;
+    font-size: 17px;
+    border-radius: 10px;
+    font-style: italic;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+/*Formato del input del boton buscar*/
+.footer button#buscar-modelo-btn {
+    background-color: #007bff;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-style: italic;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/* Resto de estilos... */
+
+#modelos-lista {
+    margin-top: 5px;
+    list-style-type: none;
+    padding: 0;
+    font-family: Piedra;
+}
+
+#modelos-lista li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu {
+    text-decoration: underline;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    font-family: Lobster;
+    background-color: #f3f3f3;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: none;
+}
+
+.menu.show-menu {
+    width: 100px;
+    display: block;
+}
+
+.menu-content {
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: ;#333;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Boton de confirmar del footer */
+.fa-check-circle{
+    font-size: 25px;
+    color: #28a745;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/*-----------------------------------*/
+/* Botones y texto de mensaje emergente de resetear modelos por mesa */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    border-radius: 20%;
+}
+
+#confirmText {
+    margin-bottom: 20px;
+    font-family: Lobster;
+    font-size: 20px;
+}
+
+#confirmYes,
+#confirmNo {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-family: Lobster;
+    border-radius: 20%;
+    font-size: 20px;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/*-----------------------------------*/
+
+/*Boton "x" de borrar al lado de los modelos */
+.btn-delete {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/* Letras del boton reset */
+.btn-lg {
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: Piedra;
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+
+/* Mensaje de busqueda de modelo */
+.mensaje-container {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: ghostwhite;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+    display: none;
+    z-index: 1000;
+    font-family: Lobster;
+    font-size: 20px;
+}
+
+.mensaje-container.show {
+    display: block;
+}
