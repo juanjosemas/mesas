@@ -28,6 +28,8 @@ h1 {
     font-size: 25px;
     opacity: 0.8;
     border-radius: 15px;
+    border-color: black;
+    border-width: 0.2em;
     display: flex;
     margin: 0 0 0 -50px;
     background-color: #007bff;
@@ -66,6 +68,8 @@ h1 {
     font-size: 1em;
     padding: 10px 12px;
     border-radius: 10px;
+    border-color: red;
+    border-width: 0.2em;
     font-style: italic;
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
@@ -75,6 +79,8 @@ h1 {
     width: 180px;
     font-size: 17px;
     border-radius: 10px;
+    border-color: #007bff;
+    border-width: 0.2em;  
     font-style: italic;
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
